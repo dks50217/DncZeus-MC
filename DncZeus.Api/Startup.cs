@@ -48,12 +48,19 @@ namespace DncZeus.Api
         {
             services.AddCors(o =>
                 o.AddPolicy("CorsPolicy",
-                    builder => builder
-                        .WithOrigins(Configuration.GetValue<string>("AllowedOrigins").Split(","))
-                        .AllowAnyHeader()
-                        .AllowAnyMethod()
-                        .AllowCredentials()
-                ));
+                    //builder => builder
+                    //    .WithOrigins(Configuration.GetValue<string>("AllowedOrigins").Split(","))
+                    //    .AllowAnyHeader()
+                    //    .AllowAnyMethod()
+                    //    .AllowCredentials()
+                    policy =>
+                          {
+                              policy.SetIsOriginAllowed(_ => true)
+                                    .AllowAnyHeader()
+                                    .AllowAnyMethod()
+                                    .AllowCredentials();
+                          })
+                );
 
             services.AddMemoryCache();
             services.AddHttpContextAccessor();

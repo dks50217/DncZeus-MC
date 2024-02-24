@@ -13,7 +13,7 @@ export const initRouter = (vm) => {
   //   return
   // }
   let list = []
-  // 模拟异步请求，改为您实际的后端请求路径
+  // 模擬非同步請求，改為您實際的後端請求路徑
   // axios.get(baseUrl + 'system/permission/userMenuList', {
   //   headers: { 'Authorization': 'Bearer ' + getToken() }
   // })
@@ -23,9 +23,9 @@ export const initRouter = (vm) => {
     method: 'get'
   }).then(res => {
     var menuData = res.data
-    // 格式化菜单
+    // 格式化菜單
     list = formatMenu(menuData)
-    // 刷新界面菜单
+    // 重新整理界面菜單
     //vm.$store.commit('setMenuList', list)
     vm.$store.commit('refreshMenuList', list)
   });
@@ -33,7 +33,7 @@ export const initRouter = (vm) => {
   return list
 }
 
-// 加载菜单，在创建路由时使用
+// 載入菜單，在建立路由時使用
 export const loadMenu = () => {
   let list = []
   axios.request({
@@ -41,15 +41,15 @@ export const loadMenu = () => {
     method: 'get'
   }).then(res => {
     var menuData = res.data
-    // 这是后端回传给前端的数据，如上面所说的
-    // 格式化菜单
+    // 這是後端回傳給前端的數據，如上面所說的
+    // 格式化菜單
     list = formatMenu(menuData)
   });
 
   return list
 }
 
-// 格式化菜单
+// 格式化菜單
 export const formatMenu = (list) => {
   let res = []
   forEach(list, item => {
@@ -60,16 +60,16 @@ export const formatMenu = (list) => {
     }
     obj.meta = item.meta
     //obj.meta.showAlways = true;
-    // 惰性递归 ****
+    // 惰性遞迴 ****
     if (item.parentId === "0") {
       obj.component = Main
     } else {
-      // 惰性递归 ****
+      // 惰性遞迴 ****
       let data = item.component
       if(item.children.length>0){
         obj.component = parentView
       }else{
-        // 这里需要改成自己定义的 .vue 路径
+        // 這裡需要改成自己定義的 .vue 路徑
         obj.component = () => import('@/view' + data)
       }
     }

@@ -6,8 +6,8 @@
           <Icon :size="18" type="ios-close-circle-outline"/>
         </Button>
         <DropdownMenu slot="list">
-          <DropdownItem name="close-all">关闭所有</DropdownItem>
-          <DropdownItem name="close-others">关闭其他</DropdownItem>
+          <DropdownItem name="close-all">關閉所有</DropdownItem>
+          <DropdownItem name="close-others">關閉其他</DropdownItem>
         </DropdownMenu>
       </Dropdown>
     </div>
@@ -78,8 +78,8 @@ export default {
       contextMenuTop: 0,
       visible: false,
       menuList: {
-        others: "关闭其他",
-        all: "关闭所有"
+        others: "關閉其他",
+        all: "關閉所有"
       }
     };
   },
@@ -120,11 +120,11 @@ export default {
     },
     handleTagsOption(type) {
       if (type.includes("all")) {
-        // 关闭所有，除了home
+        // 關閉所有，除了home
         let res = this.list.filter(item => item.name === this.$config.homeName);
         this.$emit("on-close", res, "all");
       } else if (type.includes("others")) {
-        // 关闭除当前页和home页的其他页
+        // 關閉除目前頁和home頁的其他頁
         let res = this.list.filter(
           item =>
             routeEqual(this.currentRouteObj, item) ||
@@ -170,19 +170,19 @@ export default {
       if (bodyWidth < outerWidth) {
         this.tagBodyLeft = 0;
       } else if (tag.offsetLeft < -this.tagBodyLeft) {
-        // 标签在可视区域左侧
+        // 標籤在可視區域左側
         this.tagBodyLeft = -tag.offsetLeft + this.outerPadding;
       } else if (
         tag.offsetLeft > -this.tagBodyLeft &&
         tag.offsetLeft + tag.offsetWidth < -this.tagBodyLeft + outerWidth
       ) {
-        // 标签在可视区域
+        // 標籤在可視區域
         this.tagBodyLeft = Math.min(
           0,
           outerWidth - tag.offsetWidth - tag.offsetLeft - this.outerPadding
         );
       } else {
-        // 标签在可视区域右侧
+        // 標籤在可視區域右側
         this.tagBodyLeft = -(
           tag.offsetLeft -
           (outerWidth - this.outerPadding - tag.offsetWidth)

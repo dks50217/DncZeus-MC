@@ -18,7 +18,7 @@ import TreeTable from 'tree-table-vue'
 import { initRouter } from '@/libs/router-util'
 
 
-// 实际打包时应该不引入mock
+// 實際打包時應該不引入mock
 /* eslint-disable */
 // if (process.env.NODE_ENV !== 'production') require('@/mock')
 
@@ -30,19 +30,19 @@ Vue.use(iView, {
 })
 Vue.use(TreeTable)
 /**
- * @description 注册admin内置插件
+ * @description 註冊admin內建外掛
  */
 installPlugin(Vue)
 /**
- * @description 生产环境关掉提示
+ * @description 生產環境關掉提示
  */
 Vue.config.productionTip = false
 /**
- * @description 全局注册应用配置
+ * @description 全域性註冊應用配置
  */
 Vue.prototype.$config = config
 /**
- * 注册指令
+ * 註冊指令
  */
 importDirective(Vue)
 
@@ -58,7 +58,7 @@ new Vue({
   mounted() {
     var target = this;
     //initRouter(target);
-    // 调用方法，动态生成路由
+    // 呼叫方法，動態產生路由
     setTimeout(function(){
       //initRouter(target);
     },1500);

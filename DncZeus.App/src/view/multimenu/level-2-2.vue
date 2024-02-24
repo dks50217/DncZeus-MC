@@ -1,6 +1,6 @@
 -<template>
   <div>
-    二级菜单02
+    二級菜單02
   </div>
 </template>
 <script>

@@ -3,12 +3,12 @@ import { login, logout, getUserInfo } from './login'
 import { getTableData, getDragList, uploadImage } from './data'
 import { getMessageInit, getContentByMsgId, hasRead, removeReaded, restoreTrash, messageCount } from './user'
 
-// 配置Ajax请求延时，可用来测试网络延迟大时项目中一些效果
+// 配置Ajax請求延時，可用來測試網路延遲大時專案中一些效果
 Mock.setup({
   timeout: 1000
 })
 
-// 登录相关和获取用户信息
+// 登錄相關和獲取使用者資訊
 Mock.mock(/\/login/, login)
 Mock.mock(/\/get_info/, getUserInfo)
 Mock.mock(/\/logout/, logout)

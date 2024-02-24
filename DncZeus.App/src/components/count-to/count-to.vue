@@ -17,78 +17,78 @@ export default {
       default: 0
     },
     /**
-     * @description 起始值，即动画开始前显示的数值
+     * @description 起始值，即動畫開始前顯示的數值
      */
     startVal: {
       type: Number,
       default: 0
     },
     /**
-     * @description 结束值，即动画结束后显示的数值
+     * @description 結束值，即動畫結束后顯示的數值
      */
     end: {
       type: Number,
       required: true
     },
     /**
-     * @description 保留几位小数
+     * @description 保留幾位小數
      */
     decimals: {
       type: Number,
       default: 0
     },
     /**
-     * @description 分隔整数和小数的符号，默认是小数点
+     * @description 分隔整數和小數的符號，預設是小數點
      */
     decimal: {
       type: String,
       default: '.'
     },
     /**
-     * @description 动画持续的时间，单位是秒
+     * @description 動畫持續的時間，單位是秒
      */
     duration: {
       type: Number,
       default: 2
     },
     /**
-     * @description 动画延迟开始的时间，单位是秒
+     * @description 動畫延遲開始的時間，單位是秒
      */
     delay: {
       type: Number,
       default: 0
     },
     /**
-     * @description 是否禁用easing动画效果
+     * @description 是否禁用easing動畫效果
      */
     uneasing: {
       type: Boolean,
       default: false
     },
     /**
-     * @description 是否使用分组，分组后每三位会用一个符号分隔
+     * @description 是否使用分組，分組后每三位會用一個符號分隔
      */
     usegroup: {
       type: Boolean,
       default: false
     },
     /**
-     * @description 用于分组(usegroup)的符号
+     * @description 用於分組(usegroup)的符號
      */
     separator: {
       type: String,
       default: ','
     },
     /**
-     * @description 是否简化显示，设为true后会使用unit单位来做相关省略
+     * @description 是否簡化顯示，設為true後會使用unit單位來做相關省略
      */
     simplify: {
       type: Boolean,
       default: false
     },
     /**
-     * @description 自定义单位，如[3, 'K+'], [6, 'M+']即大于3位数小于6位数的用k+来做省略
-     *              1000即显示为1K+
+     * @description 自定義單位，如[3, 'K+'], [6, 'M+']即大於3位數小於6位數的用k+來做省略
+     *              1000即顯示為1K+
      */
     unit: {
       type: Array,

@@ -18,7 +18,7 @@ export default {
     },
     placeholder: {
       type: String,
-      default: '从网页或其他应用软件复制表格数据，粘贴到这里 。默认第一行是表头，使用回车键添加新行，使用Tab键区分列。'
+      default: '從網頁或其他應用軟體複製表格數據，貼上到這裡 。預設第一行是表頭，使用回車鍵新增新行，使用Tab鍵區分列。'
     }
   },
   data () {
@@ -48,7 +48,7 @@ export default {
       this.handleAreaData()
     },
     /**
-     * @description 处理粘贴操作
+     * @description 處理貼上操作
      */
     handleContentChanged (content) {
       let pasteData = content.trim()
@@ -63,7 +63,7 @@ export default {
       this.$emit('input', this.pasteDataArr)
     },
     /**
-     * @description 检查除第一行的每一行列数是否与第一行相同
+     * @description 檢查除第一行的每一行列數是否與第一行相同
      */
     checkColNumInEveryRow () {
       let i = 0
@@ -81,13 +81,13 @@ export default {
       return true
     },
     /**
-     * @description 标记不符合格式的一行
+     * @description 標記不符合格式的一行
      */
     markIncorrectRow (index) {
       this.editor.addLineClass(index, 'text', 'incorrect-row')
     },
     /**
-     * @description 标记不符合格式的一行
+     * @description 標記不符合格式的一行
      */
     clearLineClass () {
       forEach(this.pasteDataArr, (item, index) => {

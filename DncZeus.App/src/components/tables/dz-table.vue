@@ -5,7 +5,7 @@
         <Input
           @on-change="handleClear"
           clearable
-          placeholder="输入关键字搜索"
+          placeholder="輸入關鍵字搜索"
           class="search-input"
           v-model="searchValue"
         />
@@ -14,7 +14,7 @@
         </Button>
       </div>
     </slot>
-    <slot name="table">暂无数据</slot>
+    <slot name="table">暫無數據</slot>
     <div style="margin-top:15px;">
       <slot name="pager">
         <Page
@@ -49,7 +49,7 @@ export default {
       default: false
     },
     /**
-     * @description 搜索控件所在位置，'top' / 'bottom'
+     * @description 搜索控制元件所在位置，'top' / 'bottom'
      */
     searchPlace: {
       type: String,

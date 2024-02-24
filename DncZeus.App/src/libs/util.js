@@ -1,5 +1,5 @@
 import Cookies from 'js-cookie'
-// cookie保存的天数
+// cookie儲存的天數
 import config from '@/config'
 import {
   forEach,
@@ -35,8 +35,8 @@ const showThisMenuEle = (item, access) => {
   } else return true
 }
 /**
- * @param {Array} list 通过路由列表得到菜单列表
- * @param {Array} pages 当前用户可以访问的页面编码列表
+ * @param {Array} list 通過路由列表得到菜單列表
+ * @param {Array} pages 目前使用者可以訪問的頁面編碼列表
  * @returns {Array}
  */
 export const getMenuByRouter = (list, access, pages) => {
@@ -63,7 +63,7 @@ export const getMenuByRouter = (list, access, pages) => {
 }
 
 /**
- * @param {Array} routes 通过路由列表得到菜单列表
+ * @param {Array} routes 通過路由列表得到菜單列表
  * @returns {Array}
  */
 export const getMenuListByRoutes = (routes) => {
@@ -74,7 +74,7 @@ export const getMenuListByRoutes = (routes) => {
   //     name: "rbac",
   //     meta: {
   //       hideInMenu: false,
-  //       title:"用户权限管理"
+  //       title:"使用者許可權管理"
   //     },
   //     children: [
   //       {
@@ -82,7 +82,7 @@ export const getMenuListByRoutes = (routes) => {
   //         name: "rbac_user_page",
   //         meta: {
   //           hideInMenu: false,
-  //           title:"用户管理"
+  //           title:"使用者管理"
   //         }
   //       },
   //       {
@@ -90,7 +90,7 @@ export const getMenuListByRoutes = (routes) => {
   //         name: "rbac_role_page",
   //         meta: {
   //           hideInMenu: false,
-  //           title:"权限管理"
+  //           title:"許可權管理"
   //         }
   //       }
   //     ]
@@ -114,7 +114,7 @@ export const getMenuListByRoutes = (routes) => {
 }
 
 /**
- * @param {Array} routeMetched 当前路由metched
+ * @param {Array} routeMetched 目前路由metched
  * @returns {Array}
  */
 export const getBreadCrumbList = (route, homeRoute) => {
@@ -184,13 +184,13 @@ export const showTitle = (item, vm) => {
 }
 
 /**
- * @description 本地存储和获取标签导航列表
+ * @description 本地儲存和獲取標籤導航列表
  */
 export const setTagNavListInLocalstorage = list => {
   localStorage.tagNaveList = JSON.stringify(list)
 }
 /**
- * @returns {Array} 其中的每个元素只包含路由原信息中的name, path, meta三项
+ * @returns {Array} 其中的每個元素只包含路由原資訊中的name, path, meta三項
  */
 export const getTagNavListFromLocalstorage = () => {
   const list = localStorage.tagNaveList
@@ -198,8 +198,8 @@ export const getTagNavListFromLocalstorage = () => {
 }
 
 /**
- * @param {Array} routers 路由列表数组
- * @description 用于找到路由列表中name为home的对象
+ * @param {Array} routers 路由列表陣列
+ * @description 用於找到路由列表中name為home的對象
  */
 export const getHomeRoute = (routers, homeName = 'home') => {
   let i = -1
@@ -218,9 +218,9 @@ export const getHomeRoute = (routers, homeName = 'home') => {
 }
 
 /**
- * @param {*} list 现有标签导航列表
- * @param {*} newRoute 新添加的路由原信息对象
- * @description 如果该newRoute已经存在则不再添加
+ * @param {*} list 現有標籤導航列表
+ * @param {*} newRoute 新新增的路由原資訊對像
+ * @description 如果該newRoute已經存在則不再新增
  */
 export const getNewTagList = (list, newRoute) => {
   const {
@@ -239,7 +239,7 @@ export const getNewTagList = (list, newRoute) => {
 }
 
 /**
- * @param {*} access 用户权限数组，如 ['super_admin', 'admin']
+ * @param {*} access 使用者許可權陣列，如 ['super_admin', 'admin']
  * @param {*} route 路由列表
  */
 const hasAccess = (access, route) => {
@@ -248,11 +248,11 @@ const hasAccess = (access, route) => {
 }
 
 /**
- * 权鉴
- * @param {*} name 即将跳转的路由name
- * @param {*} access 用户权限数组
+ * 權鑒
+ * @param {*} name 即將跳轉的路由name
+ * @param {*} access 使用者許可權陣列
  * @param {*} routes 路由列表
- * @description 用户是否可跳转到该页
+ * @description 使用者是否可跳轉到該頁
  */
 export const canTurnTo = (name, access, routes) => {
   const routePermissionJudge = (list) => {
@@ -270,7 +270,7 @@ export const canTurnTo = (name, access, routes) => {
 
 /**
  * @param {String} url
- * @description 从URL中解析参数
+ * @description 從URL中解析參數
  */
 export const getParams = url => {
   const keyValueArr = url.split('?')[1].split('&')
@@ -283,8 +283,8 @@ export const getParams = url => {
 }
 
 /**
- * @param {Array} list 标签列表
- * @param {String} name 当前关闭的标签的name
+ * @param {Array} list 標籤列表
+ * @param {String} name 目前關閉的標籤的name
  */
 export const getNextRoute = (list, route) => {
   let res = {}
@@ -299,8 +299,8 @@ export const getNextRoute = (list, route) => {
 }
 
 /**
- * @param {Number} times 回调函数需要执行的次数
- * @param {Function} callback 回调函数
+ * @param {Number} times 回撥函式需要執行的次數
+ * @param {Function} callback 回撥函式
  */
 export const doCustomTimes = (times, callback) => {
   let i = -1
@@ -310,19 +310,19 @@ export const doCustomTimes = (times, callback) => {
 }
 
 /**
- * @param {Object} file 从上传组件得到的文件对象
- * @returns {Promise} resolve参数是解析后的二维数组
- * @description 从Csv文件中解析出表格，解析成二维数组
+ * @param {Object} file 從上傳元件得到的檔案對像
+ * @returns {Promise} resolve參數是解析后的二維陣列
+ * @description 從Csv檔案中解析出表格，解析成二維陣列
  */
 export const getArrayFromFile = (file) => {
   let nameSplit = file.name.split('.')
   let format = nameSplit[nameSplit.length - 1]
   return new Promise((resolve, reject) => {
     let reader = new FileReader()
-    reader.readAsText(file) // 以文本格式读取
+    reader.readAsText(file) // 以文字格式讀取
     let arr = []
     reader.onload = function (evt) {
-      let data = evt.target.result // 读到的数据
+      let data = evt.target.result // 讀到的數據
       let pasteData = data.trim()
       arr = pasteData.split((/[\n\u0085\u2028\u2029]|\r\n?/g)).map(row => {
         return row.split('\t')
@@ -330,15 +330,15 @@ export const getArrayFromFile = (file) => {
         return item[0].split(',')
       })
       if (format === 'csv') resolve(arr)
-      else reject(new Error('[Format Error]:你上传的不是Csv文件'))
+      else reject(new Error('[Format Error]:你上傳的不是Csv檔案'))
     }
   })
 }
 
 /**
- * @param {Array} array 表格数据二维数组
+ * @param {Array} array 表格數據二維陣列
  * @returns {Object} { columns, tableData }
- * @description 从二维数组中获取表头和表格数据，将第一行作为表头，用于在iView的表格中展示数据
+ * @description 從二維陣列中獲取表頭和表格數據，將第一行作為表頭，用於在iView的表格中展示數據
  */
 export const getTableDataFromArray = (array) => {
   let columns = []
@@ -405,9 +405,9 @@ export const showByAccess = (access, canViewAccess) => {
 }
 
 /**
- * @description 根据name/params/query判断两个路由对象是否相等
- * @param {*} route1 路由对象
- * @param {*} route2 路由对象
+ * @description 根據name/params/query判斷兩個路由對象是否相等
+ * @param {*} route1 路由對像
+ * @param {*} route2 路由對像
  */
 export const routeEqual = (route1, route2) => {
   const params1 = route1.params || {}
@@ -418,7 +418,7 @@ export const routeEqual = (route1, route2) => {
 }
 
 /**
- * 判断打开的标签列表里是否已存在这个新添加的路由对象
+ * 判斷打開的標籤列表里是否已存在這個新新增的路由對像
  */
 export const routeHasExist = (tagNavList, routeItem) => {
   let len = tagNavList.length
@@ -474,9 +474,9 @@ export const scrollTop = (el, from = 0, to, duration = 500, endCallback) => {
 }
 
 /**
- * @description 根据当前跳转的路由设置显示在浏览器标签的title
- * @param {Object} routeItem 路由对象
- * @param {Object} vm Vue实例
+ * @description 根據目前跳轉的路由設定顯示在瀏覽器標籤的title
+ * @param {Object} routeItem 路由對像
+ * @param {Object} vm Vue實例
  */
 export const setTitle = (routeItem, vm) => {
   const handledRoute = getRouteTitleHandled(routeItem)

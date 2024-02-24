@@ -15,7 +15,7 @@ import {
 import staticRouters from '@/router/static-routers'
 import axios from '@/libs/api.request'
 import config from "@/config";
-// 引入加载菜单
+// 引入載入菜單
 import { formatMenu } from '@/libs/router-util'
 
 const {
@@ -40,9 +40,9 @@ const initRouter = () => {
     method: 'get'
   }).then(res => {
     var menuData = res.data;
-    // 格式化菜单
+    // 格式化菜單
     list = formatMenu(menuData)
-    // 刷新界面菜单
+    // 重新整理界面菜單
     store.dispatch('refreshMenuList', list)
 
   });
@@ -52,14 +52,14 @@ const initRouter = () => {
 
 const turnTo = (to, checkPermission, permissions, next) => {
   // if (canTurnTo(to.name, access, routes)) next();
-  // // 有权限，可访问
+  // // 有許可權，可訪問
   // else
   //   next({
   //     replace: true,
   //     name: "error_401"
-  //   }); // 无权限，重定向到401页面
+  //   }); // 無許可權，重定向到401頁面
 
-  // 有权限，可访问
+  // 有許可權，可訪問
   to.meta.checkPermission = checkPermission;
   permissions = permissions || [];
   if (permissions && permissions[to.name]) {
@@ -79,17 +79,17 @@ router.beforeEach((to, from, next) => {
   iView.LoadingBar.start();
   const token = getToken();
   if (!token && to.name !== LOGIN_PAGE_NAME) {
-    // 未登录且要跳转的页面不是登录页
+    // 未登錄且要跳轉的頁面不是登錄頁
     next({
-      name: LOGIN_PAGE_NAME // 跳转到登录页
+      name: LOGIN_PAGE_NAME // 跳轉到登錄頁
     });
   } else if (!token && to.name === LOGIN_PAGE_NAME) {
-    // 未登陆且要跳转的页面是登录页
-    next(); // 跳转
+    // 未登陸且要跳轉的頁面是登錄頁
+    next(); // 跳轉
   } else if (token && to.name === LOGIN_PAGE_NAME) {
-    // 已登录且要跳转的页面是登录页
+    // 已登錄且要跳轉的頁面是登錄頁
     next({
-      name: homeName // 跳转到homeName页
+      name: homeName // 跳轉到homeName頁
     });
   } else {
     let checkPermission = true;
@@ -99,7 +99,7 @@ router.beforeEach((to, from, next) => {
       turnTo(to, checkPermission, store.state.user.permissions, next)
     } else {
       store.dispatch('getUserInfo').then(user => {
-        // 拉取用户信息，通过用户权限和跳转的页面的name来判断是否有权限访问;access必须是一个数组，如：['super_admin']
+        // 拉取使用者資訊，通過使用者許可權和跳轉的頁面的name來判斷是否有許可權訪問;access必須是一個陣列，如：['super_admin']
         checkPermission = user.user_type != 0;
         initRouter();
         //next()

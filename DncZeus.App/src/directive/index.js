@@ -4,18 +4,18 @@ const importDirective = Vue => {
   /**
    * 拖拽指令 v-draggable="options"
    * options = {
-   *  trigger: /这里传入作为拖拽触发器的CSS选择器/,
-   *  body:    /这里传入需要移动容器的CSS选择器/,
-   *  recover: /拖动结束之后是否恢复到原来的位置/
+   *  trigger: /這裡傳入作為拖拽觸發器的CSS選擇器/,
+   *  body:    /這裡傳入需要移動容器的CSS選擇器/,
+   *  recover: /拖動結束之後是否恢復到原來的位置/
    * }
    */
   Vue.directive('draggable', directive.draggable)
   /**
    * clipboard指令 v-draggable="options"
    * options = {
-   *  value:    /在输入框中使用v-model绑定的值/,
-   *  success:  /复制成功后的回调/,
-   *  error:    /复制失败后的回调/
+   *  value:    /在輸入框中使用v-model繫結的值/,
+   *  success:  /複製成功后的回撥/,
+   *  error:    /複製失敗后的回撥/
    * }
    */
   Vue.directive('clipboard', directive.clipboard)

@@ -41,7 +41,7 @@ export default {
     local: localRead('local'),
     errorList: [],
     hasReadErrorPage: false,
-    // 定义菜单变量
+    // 定義菜單變數
     menuList: []
   },
   getters: {
@@ -50,7 +50,7 @@ export default {
     //  },
     errorCount: state => state.errorList.length,
     menuList: state => state.menuList
-    // 通过路由列表得到菜单列表
+    // 通過路由列表得到菜單列表
     //menuList: (state, getters, rootState) => getMenuListByRoutes(routes)
   },
   mutations: {
@@ -115,7 +115,7 @@ export default {
     setMenuList(state, routes) {
       state.menuList = getMenuListByRoutes(routes);
     },
-    // 接受前台数组，刷新菜单
+    // 接受前臺陣列，重新整理菜單
     refreshMenuList(state, routes) {
       resetRouter();
       router.addRoutes(routes.concat([{

@@ -54,7 +54,7 @@ class HttpRequest {
   }
 
   showError(error, errorInfo) {
-    let message = "接口服务错误,请稍候再试.";
+    let message = "介面服務錯誤,請稍候再試.";
 
     let statusCode = -1;
     if (error.response && error.response.status) {
@@ -62,17 +62,17 @@ class HttpRequest {
     }
     switch (statusCode) {
       case 401:
-        message = "接口服务错误,原因:未授权的访问(没有权限或者登录已超时)";
+        message = "介面服務錯誤,原因:未授權的訪問(沒有許可權或者登錄已超時)";
         break;
       case 500:
-        message = "接口服务错误,原因:[" + error.response.statusText + "]";
+        message = "介面服務錯誤,原因:[" + error.response.statusText + "]";
         break;
       case -1:
-        message = "网络出错,请检查你的网络或者服务是否可用<br />请求地址:[" + error.config.url + "]";
+        message = "網路出錯,請檢查你的網路或者服務是否可用<br />請求地址:[" + error.config.url + "]";
         break;
     }
     Modal.error({
-      title: "错误提示",
+      title: "錯誤提示",
       content: message,
       duration: 15,
       closable: false
@@ -81,11 +81,11 @@ class HttpRequest {
   }
 
   interceptors(instance, url) {
-    // 请求拦截
+    // 請求攔截
     instance.interceptors.request.use(config => {
-      // 添加全局的loading...
+      // 新增全域性的loading...
       if (!Object.keys(this.queue).length) {
-        // Spin.show() // 不建议开启，因为界面不友好
+        // Spin.show() // 不建議開啟，因為界面不友好
         iView.LoadingBar.start();
       }
       this.queue[url] = true
@@ -93,7 +93,7 @@ class HttpRequest {
     }, error => {
       return Promise.reject(error)
     })
-    // 响应拦截
+    // 響應攔截
     instance.interceptors.response.use(res => {
       iView.LoadingBar.finish();
       this.destroy(url)

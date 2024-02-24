@@ -8,7 +8,7 @@
     <div class="content content-front">
       <div class="login">
         <div class="login-con">
-          <Card icon="log-in" title="欢迎登录" :bordered="false">
+          <Card icon="log-in" title="歡迎登錄" :bordered="false">
             <div class="form-con">
               <login-form
                 @on-success-valid="handleSubmit"
@@ -52,7 +52,7 @@ export default {
             this.$Message.loading({
               duration: 0,
               closable: false,
-              content: "用户信息验证成功,正在登录系统..."
+              content: "使用者資訊驗證成功,正在登錄系統..."
             });
             this.getUserInfo().then(res => {
               setTimeout(() => {
@@ -76,7 +76,7 @@ export default {
           target.loading = false;
           if (!error.status) {
             this.$Message.error({
-              content: "网络出错,请检查你的网络或者服务是否可用",
+              content: "網路出錯,請檢查你的網路或者服務是否可用",
               duration: 5
             });
           }

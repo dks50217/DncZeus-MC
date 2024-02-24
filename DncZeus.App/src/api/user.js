@@ -15,10 +15,10 @@ export const getUserInfo = (token) => {
   return axios.request({
     url: 'account/profile',
     method: 'get',
-    //是否在请求资源中添加资源的前缀
-    withPrefix: false,  //设置为true或者不设置此属性，将默认添加配置文件config.baseUrl.defaultPrefix的前缀，如果设置下面这个属性[prefix]，默认配置文件中的默认前缀将不生效
-    //请求资源的前缀重写
-    prefix:"api/v1/"    //设此属性权重最高，将覆盖配置文件[baseUrl.defaultPrefix]中的前缀，withPrefix对此属性不起作用(也就是说只要设置了此属性，都将在请求中添加设置的前缀)
+    //是否在請求資源中新增資源的字首
+    withPrefix: false,  //設定為true或者不設定此屬性，將預設新增配置檔案config.baseUrl.defaultPrefix的字首，如果設定下面這個屬性[prefix]，預設配置檔案中的預設字首將不生效
+    //請求資源的字首重寫
+    prefix:"api/v1/"    //設此屬性權重最高，將覆蓋配置檔案[baseUrl.defaultPrefix]中的字首，withPrefix對此屬性不起作用(也就是說只要設定了此屬性，都將在請求中新增設定的字首)
   })
 }
 

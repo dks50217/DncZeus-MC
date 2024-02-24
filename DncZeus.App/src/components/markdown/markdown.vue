@@ -51,7 +51,7 @@ export default {
       element: this.$refs.editor
     }))
     /**
-     * 事件列表为Codemirror编辑器的事件，更多事件类型，请参考：
+     * 事件列表為Codemirror編輯器的事件，更多事件型別，請參考：
      * https://codemirror.net/doc/manual.html#events
      */
     this.addEvents()

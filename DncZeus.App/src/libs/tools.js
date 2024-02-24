@@ -11,7 +11,7 @@ export const forEach = (arr, fn) => {
 /**
  * @param {Array} arr1
  * @param {Array} arr2
- * @description 得到两个数组的交集, 两个数组的元素为数值或字符串
+ * @description 得到兩個陣列的交集, 兩個陣列的元素為數值或字串
  */
 export const getIntersection = (arr1, arr2) => {
   let len = Math.min(arr1.length, arr2.length)
@@ -27,24 +27,24 @@ export const getIntersection = (arr1, arr2) => {
 /**
  * @param {Array} arr1
  * @param {Array} arr2
- * @description 得到两个数组的并集, 两个数组的元素为数值或字符串
+ * @description 得到兩個陣列的並集, 兩個陣列的元素為數值或字串
  */
 export const getUnion = (arr1, arr2) => {
   return Array.from(new Set([...arr1, ...arr2]))
 }
 
 /**
- * @param {Array} target 目标数组
- * @param {Array} arr 需要查询的数组
- * @description 判断要查询的数组是否至少有一个元素包含在目标数组中
+ * @param {Array} target 目標陣列
+ * @param {Array} arr 需要查詢的陣列
+ * @description 判斷要查詢的陣列是否至少有一個元素包含在目標陣列中
  */
 export const hasOneOf = (targetarr, arr) => {
   return targetarr.some(_ => arr.indexOf(_) > -1)
 }
 
 /**
- * @param {String|Number} value 要验证的字符串或数值
- * @param {*} validList 用来验证的列表
+ * @param {String|Number} value 要驗證的字串或數值
+ * @param {*} validList 用來驗證的列表
  */
 export function oneOf (value, validList) {
   for (let i = 0; i < validList.length; i++) {
@@ -56,7 +56,7 @@ export function oneOf (value, validList) {
 }
 
 /**
- * @param {Number} timeStamp 判断时间戳格式是否是毫秒
+ * @param {Number} timeStamp 判斷時間戳格式是否是毫秒
  * @returns {Boolean}
  */
 const isMillisecond = timeStamp => {
@@ -65,26 +65,26 @@ const isMillisecond = timeStamp => {
 }
 
 /**
- * @param {Number} timeStamp 传入的时间戳
- * @param {Number} currentTime 当前时间时间戳
- * @returns {Boolean} 传入的时间戳是否早于当前时间戳
+ * @param {Number} timeStamp 傳入的時間戳
+ * @param {Number} currentTime 目前時間時間戳
+ * @returns {Boolean} 傳入的時間戳是否早於目前時間戳
  */
 const isEarly = (timeStamp, currentTime) => {
   return timeStamp < currentTime
 }
 
 /**
- * @param {Number} num 数值
- * @returns {String} 处理后的字符串
- * @description 如果传入的数值小于10，即位数只有1位，则在前面补充0
+ * @param {Number} num 數值
+ * @returns {String} 處理后的字串
+ * @description 如果傳入的數值小於10，即位數只有1位，則在前面補充0
  */
 const getHandledValue = num => {
   return num < 10 ? '0' + num : num
 }
 
 /**
- * @param {Number} timeStamp 传入的时间戳
- * @param {Number} startType 要返回的时间字符串的格式类型，传入'year'则返回年开头的完整时间
+ * @param {Number} timeStamp 傳入的時間戳
+ * @param {Number} startType 要返回的時間字串的格式型別，傳入'year'則返回年開頭的完整時間
  */
 const getDate = (timeStamp, startType) => {
   const d = new Date(timeStamp * 1000)
@@ -101,42 +101,42 @@ const getDate = (timeStamp, startType) => {
 }
 
 /**
- * @param {String|Number} timeStamp 时间戳
- * @returns {String} 相对时间字符串
+ * @param {String|Number} timeStamp 時間戳
+ * @returns {String} 相對時間字串
  */
 export const getRelativeTime = timeStamp => {
-  // 判断当前传入的时间戳是秒格式还是毫秒
+  // 判斷目前傳入的時間戳是秒格式還是毫秒
   const IS_MILLISECOND = isMillisecond(timeStamp)
-  // 如果是毫秒格式则转为秒格式
+  // 如果是毫秒格式則轉為秒格式
   if (IS_MILLISECOND) Math.floor(timeStamp /= 1000)
-  // 传入的时间戳可以是数值或字符串类型，这里统一转为数值类型
+  // 傳入的時間戳可以是數值或字串型別，這裡統一轉為數值型別
   timeStamp = Number(timeStamp)
-  // 获取当前时间时间戳
+  // 獲取目前時間時間戳
   const currentTime = Math.floor(Date.parse(new Date()) / 1000)
-  // 判断传入时间戳是否早于当前时间戳
+  // 判斷傳入時間戳是否早於目前時間戳
   const IS_EARLY = isEarly(timeStamp, currentTime)
-  // 获取两个时间戳差值
+  // 獲取兩個時間戳差值
   let diff = currentTime - timeStamp
-  // 如果IS_EARLY为false则差值取反
+  // 如果IS_EARLY為false則差值取反
   if (!IS_EARLY) diff = -diff
   let resStr = ''
   const dirStr = IS_EARLY ? '前' : '后'
-  // 少于等于59秒
+  // 少於等於59秒
   if (diff <= 59) resStr = diff + '秒' + dirStr
-  // 多于59秒，少于等于59分钟59秒
-  else if (diff > 59 && diff <= 3599) resStr = Math.floor(diff / 60) + '分钟' + dirStr
-  // 多于59分钟59秒，少于等于23小时59分钟59秒
-  else if (diff > 3599 && diff <= 86399) resStr = Math.floor(diff / 3600) + '小时' + dirStr
-  // 多于23小时59分钟59秒，少于等于29天59分钟59秒
+  // 多於59秒，少於等於59分鐘59秒
+  else if (diff > 59 && diff <= 3599) resStr = Math.floor(diff / 60) + '分鐘' + dirStr
+  // 多於59分鐘59秒，少於等於23小時59分鐘59秒
+  else if (diff > 3599 && diff <= 86399) resStr = Math.floor(diff / 3600) + '小時' + dirStr
+  // 多於23小時59分鐘59秒，少於等於29天59分鐘59秒
   else if (diff > 86399 && diff <= 2623859) resStr = Math.floor(diff / 86400) + '天' + dirStr
-  // 多于29天59分钟59秒，少于364天23小时59分钟59秒，且传入的时间戳早于当前
+  // 多於29天59分鐘59秒，少於364天23小時59分鐘59秒，且傳入的時間戳早於目前
   else if (diff > 2623859 && diff <= 31567859 && IS_EARLY) resStr = getDate(timeStamp)
   else resStr = getDate(timeStamp, 'year')
   return resStr
 }
 
 /**
- * @returns {String} 当前浏览器名称
+ * @returns {String} 目前瀏覽器名稱
  */
 export const getExplorer = () => {
   const ua = window.navigator.userAgent
@@ -151,7 +151,7 @@ export const getExplorer = () => {
 }
 
 /**
- * @description 绑定事件 on(element, event, handler)
+ * @description 繫結事件 on(element, event, handler)
  */
 export const on = (function () {
   if (document.addEventListener) {
@@ -170,7 +170,7 @@ export const on = (function () {
 })()
 
 /**
- * @description 解绑事件 off(element, event, handler)
+ * @description 解綁事件 off(element, event, handler)
  */
 export const off = (function () {
   if (document.removeEventListener) {
@@ -189,8 +189,8 @@ export const off = (function () {
 })()
 
 /**
- * 判断一个对象是否存在key，如果传入第二个参数key，则是判断这个obj对象是否存在key这个属性
- * 如果没有传入key这个参数，则判断obj对象是否有键值对
+ * 判斷一個對象是否存在key，如果傳入第二個參數key，則是判斷這個obj對象是否存在key這個屬性
+ * 如果沒有傳入key這個參數，則判斷obj對象是否有鍵值對
  */
 export const hasKey = (obj, key) => {
   if (key) return key in obj
@@ -201,9 +201,9 @@ export const hasKey = (obj, key) => {
 }
 
 /**
- * @param {*} obj1 对象
- * @param {*} obj2 对象
- * @description 判断两个对象是否相等，这两个对象的值只能是数字或字符串
+ * @param {*} obj1 對像
+ * @param {*} obj2 對像
+ * @description 判斷兩個對象是否相等，這兩個對象的值只能是數字或字串
  */
 export const objEqual = (obj1, obj2) => {
   const keysArr1 = Object.keys(obj1)

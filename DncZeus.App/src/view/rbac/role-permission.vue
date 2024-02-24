@@ -5,7 +5,7 @@
         <Col span="4">
           <h3 style="background-color:#f3f3f3;margin-bottom:0; padding:5px 5px 5px 10px;position:relative;">角色列表
             <span style="display:inline-block;position:absolute;right:6px;top:4px;">
-              <Tooltip content="刷新角色列表">
+              <Tooltip content="重新整理角色列表">
                   <Button shape="circle" size="small" icon="md-refresh" @click="handleReloadRoleListClick"></Button>
               </Tooltip>
             </span>
@@ -16,7 +16,7 @@
         </Col>
         <Col span="20">
           <div style="margin-bottom:10px;">
-            <h3 style="background-color:#f3f3f3;margin-bottom:0;padding:5px 5px 5px 10px;">权限列表</h3>
+            <h3 style="background-color:#f3f3f3;margin-bottom:0;padding:5px 5px 5px 10px;">許可權列表</h3>
             <span style="display:inline-block;position:absolute;right:0;top:1px;">
               <Button icon="md-checkmark-circle" type="primary" @click="handleSaveRolePermissions">保 存</Button>
             </span>
@@ -179,7 +179,7 @@ export default {
                 "Checkbox",
                 {
                   props: {
-                    label: "全选",
+                    label: "全選",
                     value: data.allAssigned
                   },
                   style: {
@@ -195,7 +195,7 @@ export default {
                     }
                   }
                 },
-                "全选"
+                "全選"
               )
             ]
           )

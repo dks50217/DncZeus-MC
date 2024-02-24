@@ -31,14 +31,14 @@
                       search
                       :clearable="true"
                       v-model="stores.icon.query.kw"
-                      placeholder="输入关键字搜索..."
+                      placeholder="輸入關鍵字搜索..."
                       @on-search="handleSearchIcon()"
                     >
                       <Select
                         slot="prepend"
                         v-model="stores.icon.query.isDeleted"
                         @on-change="handleSearchIcon"
-                        placeholder="删除状态"
+                        placeholder="刪除狀態"
                         style="width: 60px"
                       >
                         <Option
@@ -52,7 +52,7 @@
                         slot="prepend"
                         v-model="stores.icon.query.status"
                         @on-change="handleSearchIcon"
-                        placeholder="图标状态"
+                        placeholder="圖示狀態"
                         style="width: 60px"
                       >
                         <Option
@@ -71,13 +71,13 @@
                   <Button
                     class="txt-danger"
                     icon="md-trash"
-                    title="删除"
+                    title="刪除"
                     @click="handleBatchCommand('delete')"
                   ></Button>
                   <Button
                     class="txt-success"
                     icon="md-redo"
-                    title="恢复"
+                    title="恢復"
                     @click="handleBatchCommand('recover')"
                   ></Button>
                   <Button
@@ -89,12 +89,12 @@
                   <Button
                     class="txt-success"
                     icon="md-checkmark"
-                    title="启用"
+                    title="啟用"
                     @click="handleBatchCommand('normal')"
                   ></Button>
                   <Button
                     icon="md-refresh"
-                    title="刷新"
+                    title="重新整理"
                     @click="handleRefresh"
                   ></Button>
                 </ButtonGroup>
@@ -102,8 +102,8 @@
                   icon="md-create"
                   type="primary"
                   @click="handleShowCreateWindow"
-                  title="新增图标"
-                  >新增图标</Button
+                  title="新增圖示"
+                  >新增圖示</Button
                 >
               </Col>
             </Row>
@@ -120,18 +120,18 @@
       :styles="styles"
     >
       <Form :model="formModel.fields" ref="formIcon" :rules="formModel.rules">
-        <FormItem label="图标名称" prop="code" label-position="left">
-          <Input v-model="formModel.fields.code" placeholder="请输入图标名称" />
+        <FormItem label="圖示名稱" prop="code" label-position="left">
+          <Input v-model="formModel.fields.code" placeholder="請輸入圖示名稱" />
         </FormItem>
-        <FormItem label="自定义图标" label-position="top">
+        <FormItem label="自定義圖示" label-position="top">
           <Input
             v-model="formModel.fields.custom"
-            placeholder="请输入自定义图标"
+            placeholder="請輸入自定義圖示"
           />
         </FormItem>
         <Row :gutter="8">
           <Col span="12">
-            <FormItem label="图标状态" label-position="left">
+            <FormItem label="圖示狀態" label-position="left">
               <i-switch
                 size="large"
                 v-model="formModel.fields.status"
@@ -144,30 +144,30 @@
             </FormItem>
           </Col>
           <Col span="12">
-            <FormItem label="图标大小" label-position="left">
+            <FormItem label="圖示大小" label-position="left">
               <InputNumber
                 v-model="formModel.fields.size"
-                placeholder="图标大小"
+                placeholder="圖示大小"
               ></InputNumber>
             </FormItem>
           </Col>
         </Row>
         <Row :gutter="8">
           <Col span="12">
-            <FormItem label="图标颜色" label-position="top">
+            <FormItem label="圖示顏色" label-position="top">
               <ColorPicker
                 v-model="formModel.fields.color"
-                placeholder="图标颜色"
+                placeholder="圖示顏色"
               />
             </FormItem>
           </Col>
         </Row>
-        <FormItem label="备注" label-position="top">
+        <FormItem label="備註" label-position="top">
           <Input
             type="textarea"
             v-model="formModel.fields.description"
             :rows="4"
-            placeholder="图标备注信息"
+            placeholder="圖示備註資訊"
           />
         </FormItem>
       </Form>
@@ -188,23 +188,23 @@
           style="margin-left: 8px"
           icon="md-arrow-up"
           @click="handleOpenBatchImportDrawer"
-          >批量导入</Button
+          >批量匯入</Button
         >
       </div>
     </Drawer>
     <Drawer
-      title="批量导入图标"
+      title="批量匯入圖示"
       v-model="formModel.batchImport.opened"
       width="360"
       :mask-closable="false"
     >
       <Form>
-        <FormItem label="批量图标" label-position="top">
+        <FormItem label="批量圖示" label-position="top">
           <Input
             type="textarea"
             v-model="formModel.batchImport.icons"
             :rows="16"
-            placeholder="以回车分隔,每行一个图标名称"
+            placeholder="以回車分隔,每行一個圖示名稱"
           />
         </FormItem>
       </Form>
@@ -245,14 +245,14 @@ export default {
   data() {
     return {
       commands: {
-        delete: { name: "delete", title: "删除" },
-        recover: { name: "recover", title: "恢复" },
+        delete: { name: "delete", title: "刪除" },
+        recover: { name: "recover", title: "恢復" },
         forbidden: { name: "forbidden", title: "禁用" },
-        normal: { name: "normal", title: "启用" },
+        normal: { name: "normal", title: "啟用" },
       },
       formModel: {
         opened: false,
-        title: "创建图标",
+        title: "建立圖示",
         mode: "create",
         selection: [],
         fields: {
@@ -271,7 +271,7 @@ export default {
             {
               type: "string",
               required: true,
-              message: "请输入图标名称",
+              message: "請輸入圖示名稱",
               min: 2,
             },
           ],
@@ -301,7 +301,7 @@ export default {
             isDeletedSources: [
               { value: -1, text: "全部" },
               { value: 0, text: "正常" },
-              { value: 1, text: "已删" },
+              { value: 1, text: "已刪" },
             ],
             statusSources: [
               { value: -1, text: "全部" },
@@ -316,7 +316,7 @@ export default {
           columns: [
             { type: "selection", width: 30, key: "handle" },
             {
-              title: "图标",
+              title: "圖示",
               key: "code",
               width: 80,
               align: "center",
@@ -330,12 +330,12 @@ export default {
                 });
               },
             },
-            { title: "图标名称", key: "code", width: 250, sortable: true },
-            { title: "自定义", key: "custom", width: 150 },
+            { title: "圖示名稱", key: "code", width: 250, sortable: true },
+            { title: "自定義", key: "custom", width: 150 },
             { title: "大小", key: "size", width: 60 },
-            { title: "颜色", key: "color", width: 80 },
+            { title: "顏色", key: "color", width: 80 },
             {
-              title: "状态",
+              title: "狀態",
               key: "status",
               align: "center",
               width: 120,
@@ -359,7 +359,7 @@ export default {
                     },
                   },
                   [
-                    //这个中括号表示是Tooltip标签的子标签
+                    //這個中括號表示是Tooltip標籤的子標籤
                     h(
                       "Tag",
                       {
@@ -369,7 +369,7 @@ export default {
                         },
                       },
                       statusText
-                    ), //表格列显示文字
+                    ), //表格列顯示文字
                     h(
                       "p",
                       {
@@ -378,21 +378,21 @@ export default {
                           whiteSpace: "normal",
                         },
                       },
-                      statusText //整个的信息即气泡内文字
+                      statusText //整個的資訊即氣泡內文字
                     ),
                   ]
                 );
               },
             },
             {
-              title: "创建时间",
+              title: "建立時間",
               width: 90,
               ellipsis: true,
               tooltip: true,
               key: "createdOn",
             },
             {
-              title: "创建者",
+              title: "建立者",
               key: "createdByUserName",
               ellipsis: true,
               tooltip: true,
@@ -411,7 +411,7 @@ export default {
                     {
                       props: {
                         confirm: true,
-                        title: "你确定要删除吗?",
+                        title: "你確定要刪除嗎?",
                       },
                       on: {
                         "on-ok": () => {
@@ -446,7 +446,7 @@ export default {
                                 whiteSpace: "normal",
                               },
                             },
-                            "删除"
+                            "刪除"
                           ),
                         ]
                       ),
@@ -486,7 +486,7 @@ export default {
                             whiteSpace: "normal",
                           },
                         },
-                        "编辑"
+                        "編輯"
                       ),
                     ]
                   );
@@ -508,10 +508,10 @@ export default {
   computed: {
     formTitle() {
       if (this.formModel.mode === "create") {
-        return "创建图标";
+        return "建立圖示";
       }
       if (this.formModel.mode === "edit") {
-        return "编辑图标";
+        return "編輯圖示";
       }
       return "";
     },
@@ -562,7 +562,7 @@ export default {
     handleSubmitIcon() {
       this.$refs["formIcon"].validate((valid) => {
         if (!valid) {
-          this.$Message.error("请完善表单信息");
+          this.$Message.error("請完善表單資訊");
           _valid = false;
         } else {
           if (this.formModel.mode === "create") {
@@ -609,7 +609,7 @@ export default {
     },
     doDelete(ids) {
       if (!ids) {
-        this.$Message.warning("请选择至少一条数据");
+        this.$Message.warning("請選擇至少一條數據");
         return;
       }
       deleteIcon(ids).then((res) => {
@@ -623,15 +623,15 @@ export default {
     },
     handleBatchCommand(command) {
       if (!this.selectedRowsId || this.selectedRowsId.length <= 0) {
-        this.$Message.warning("请选择至少一条数据");
+        this.$Message.warning("請選擇至少一條數據");
         return;
       }
       this.$Modal.confirm({
         title: "操作提示",
         content:
-          "<p>确定要执行当前 [" +
+          "<p>確定要執行當前 [" +
           this.commands[command].title +
-          "] 操作吗?</p>",
+          "] 操作嗎?</p>",
         loading: true,
         onOk: () => {
           this.doBatchCommand(command);

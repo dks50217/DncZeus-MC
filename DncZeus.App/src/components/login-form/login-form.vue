@@ -1,23 +1,23 @@
 <template>
   <Form ref="loginForm" :model="form" :rules="rules" @keydown.enter.native="handleSubmit">
     <FormItem prop="userName">
-      <Input v-model="form.userName" placeholder="请输入用户名">
+      <Input v-model="form.userName" placeholder="請輸入使用者名稱">
         <span slot="prepend">
           <Icon :size="16" type="ios-person"></Icon>
         </span>
       </Input>
     </FormItem>
     <FormItem prop="password">
-      <Input type="password" v-model="form.password" placeholder="请输入密码">
+      <Input type="password" v-model="form.password" placeholder="請輸入密碼">
         <span slot="prepend">
           <Icon :size="14" type="md-lock"></Icon>
         </span>
       </Input>
     </FormItem>
-    <FormItem label="测试账户">
+    <FormItem label="測試賬戶">
       <RadioGroup v-model="form.userType" type="button" @on-change="handleUserTypeChange">
-        <Radio label="超级管理员"></Radio>
-        <Radio label="普通用户"></Radio>
+        <Radio label="超級管理員"></Radio>
+        <Radio label="普通使用者"></Radio>
       </RadioGroup>
     </FormItem>
     <FormItem>
@@ -29,7 +29,7 @@
         :loading="loading"
       >{{btnLoginText}}</Button>
     </FormItem>
-    <p class="login-tip">欢迎使用DncZeus通用权限管理框架</p>
+    <p class="login-tip">歡迎使用DncZeus通用許可權管理框架</p>
   </Form>
 </template>
 <script>
@@ -39,13 +39,13 @@ export default {
     userNameRules: {
       type: Array,
       default: () => {
-        return [{ required: true, message: "账号不能为空", trigger: "blur" }];
+        return [{ required: true, message: "賬號不能為空", trigger: "blur" }];
       }
     },
     passwordRules: {
       type: Array,
       default: () => {
-        return [{ required: true, message: "密码不能为空", trigger: "blur" }];
+        return [{ required: true, message: "密碼不能為空", trigger: "blur" }];
       }
     },
     processing: {
@@ -68,7 +68,7 @@ export default {
   },
   computed: {
     btnLoginText() {
-      return this.processing ? "正在处理,请稍候..." : "登录";
+      return this.processing ? "正在處理,請稍候..." : "登錄";
     },
     rules() {
       return {
@@ -90,10 +90,10 @@ export default {
     },
     handleUserTypeChange(val){
       switch(val){
-        case "超级管理员":
+        case "超級管理員":
           this.form.userName = "administrator";
           break;
-        case "普通用户":
+        case "普通使用者":
         this.form.userName = "admin";
         break;
       }

@@ -16,7 +16,7 @@ export default {
       default: ''
     },
     /**
-     * 绑定的值的类型, enum: ['html', 'text']
+     * 繫結的值的型別, enum: ['html', 'text']
      */
     valueType: {
       type: String,
@@ -26,14 +26,14 @@ export default {
       }
     },
     /**
-     * @description 设置change事件触发时间间隔
+     * @description 設定change事件觸發時間間隔
      */
     changeInterval: {
       type: Number,
       default: 200
     },
     /**
-     * @description 是否开启本地存储
+     * @description 是否開啟本地儲存
      */
     cache: {
       type: Boolean,
@@ -59,9 +59,9 @@ export default {
       this.$emit('on-change', html, text)
     }
     this.editor.customConfig.onchangeTimeout = this.changeInterval
-    // create这个方法一定要在所有配置项之后调用
+    // create這個方法一定要在所有配置項之後呼叫
     this.editor.create()
-    // 如果本地有存储加载本地存储内容
+    // 如果本地有儲存載入本地儲存內容
     let html = this.value || localStorage.editorCache
     if (html) this.editor.txt.html(html)
   }

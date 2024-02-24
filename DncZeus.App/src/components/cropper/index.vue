@@ -8,7 +8,7 @@
       <div class="button-box">
         <slot>
           <Upload action="image/upload" :before-upload="beforeUpload">
-            <Button style="width: 150px;" type="primary">上传图片</Button>
+            <Button style="width: 150px;" type="primary">上傳圖片</Button>
           </Upload>
         </slot>
         <div v-show="insideSrc">

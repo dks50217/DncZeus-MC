@@ -42,5 +42,6 @@ module.exports = {
     //禁用host检查,不然在部分流利器中会报[WDS disconnected]的错误
     // 参考:https://github.com/webpack/webpack-dev-server/issues/851
     //disableHostCheck: true
-  }
+  },
+  lintOnSave:false
 }

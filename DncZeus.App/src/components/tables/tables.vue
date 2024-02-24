@@ -5,7 +5,7 @@
           <Select v-model="searchKey" class="search-col">
             <Option v-for="item in columns" v-if="item.key !== 'handle'" :value="item.key" :key="`search-col-${item.key}`">{{ item.title }}</Option>
           </Select>
-          <Input @on-change="handleClear" clearable placeholder="输入关键字搜索" class="search-input" v-model="searchValue"/>
+          <Input @on-change="handleClear" clearable placeholder="輸入關鍵字搜索" class="search-input" v-model="searchValue"/>
           <Button @click="handleSearch" class="search-btn" type="primary"><Icon type="search"/>&nbsp;&nbsp;搜索</Button>
         </div>
     </slot>
@@ -44,13 +44,13 @@
     <Page :total="totalCount" :page-size="pageSize" size="small" show-elevator show-sizer show-total :page-size-opts="pageSizeOpts" @on-change="onPageChanged" @on-page-size-change="onPageSizeChanged">
     </Page>
   <div v-show="showRefreshButton" class="dnc-table-refresh-btn">
-    <Button size="small" shape="circle" icon="md-refresh"  @click="onRefresh" title="刷新"></Button>
+    <Button size="small" shape="circle" icon="md-refresh"  @click="onRefresh" title="重新整理"></Button>
   </div>
     <div v-if="searchable && searchPlace === 'bottom'" class="search-con search-con-top">
       <Select v-model="searchKey" class="search-col">
         <Option v-for="item in columns" v-if="item.key !== 'handle'" :value="item.key" :key="`search-col-${item.key}`">{{ item.title }}</Option>
       </Select>
-      <Input placeholder="输入关键字搜索" class="search-input" v-model="searchValue"/>
+      <Input placeholder="輸入關鍵字搜索" class="search-input" v-model="searchValue"/>
       <Button class="search-btn" type="primary"><Icon type="search"/>&nbsp;&nbsp;搜索</Button>
     </div>
     <a id="hrefToExportTable" style="display: none;width: 0px;height: 0px;"></a>
@@ -122,7 +122,7 @@ export default {
       default: false
     },
     /**
-     * @description 全局设置是否可编辑
+     * @description 全域性設定是否可編輯
      */
     editable: {
       type: Boolean,
@@ -136,7 +136,7 @@ export default {
       default: false
     },
     /**
-     * @description 搜索控件所在位置，'top' / 'bottom'
+     * @description 搜索控制元件所在位置，'top' / 'bottom'
      */
     searchPlace: {
       type: String,
@@ -163,9 +163,9 @@ export default {
   },
   /**
    * Events
-   * @on-start-edit 返回值 {Object} ：同iview中render函数中的params对象 { row, index, column }
+   * @on-start-edit 返回值 {Object} ：同iview中render函式中的params對像 { row, index, column }
    * @on-cancel-edit 返回值 {Object} 同上
-   * @on-save-edit 返回值 {Object} ：除上面三个参数外，还有一个value: 修改后的数据
+   * @on-save-edit 返回值 {Object} ：除上面三個參數外，還有一個value: 修改後的數據
    */
   data() {
     return {

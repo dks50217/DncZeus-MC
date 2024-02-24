@@ -31,14 +31,14 @@
                       search
                       :clearable="true"
                       v-model="stores.role.query.kw"
-                      placeholder="输入关键字搜索..."
+                      placeholder="輸入關鍵字搜索..."
                       @on-search="handleSearchRole()"
                     >
                       <Select
                         slot="prepend"
                         v-model="stores.role.query.isDeleted"
                         @on-change="handleSearchRole"
-                        placeholder="删除状态"
+                        placeholder="刪除狀態"
                         style="width: 60px"
                       >
                         <Option
@@ -52,7 +52,7 @@
                         slot="prepend"
                         v-model="stores.role.query.status"
                         @on-change="handleSearchRole"
-                        placeholder="角色状态"
+                        placeholder="角色狀態"
                         style="width: 60px"
                       >
                         <Option
@@ -71,13 +71,13 @@
                   <Button
                     class="txt-danger"
                     icon="md-trash"
-                    title="删除"
+                    title="刪除"
                     @click="handleBatchCommand('delete')"
                   ></Button>
                   <Button
                     class="txt-success"
                     icon="md-redo"
-                    title="恢复"
+                    title="恢復"
                     @click="handleBatchCommand('recover')"
                   ></Button>
                   <Button
@@ -89,12 +89,12 @@
                   <Button
                     class="txt-success"
                     icon="md-checkmark"
-                    title="启用"
+                    title="啟用"
                     @click="handleBatchCommand('normal')"
                   ></Button>
                   <Button
                     icon="md-refresh"
-                    title="刷新"
+                    title="重新整理"
                     @click="handleRefresh"
                   ></Button>
                 </ButtonGroup>
@@ -125,10 +125,10 @@
         :rules="formModel.rules"
         label-position="left"
       >
-        <FormItem label="角色名称" prop="name" label-position="left">
-          <Input v-model="formModel.fields.name" placeholder="请输入角色名称" />
+        <FormItem label="角色名稱" prop="name" label-position="left">
+          <Input v-model="formModel.fields.name" placeholder="請輸入角色名稱" />
         </FormItem>
-        <FormItem label="角色状态" label-position="left">
+        <FormItem label="角色狀態" label-position="left">
           <i-switch
             size="large"
             v-model="formModel.fields.status"
@@ -139,12 +139,12 @@
             <span slot="close">禁用</span>
           </i-switch>
         </FormItem>
-        <FormItem label="备注" label-position="top">
+        <FormItem label="備註" label-position="top">
           <Input
             type="textarea"
             v-model="formModel.fields.description"
             :rows="4"
-            placeholder="角色备注信息"
+            placeholder="角色備註資訊"
           />
         </FormItem>
       </Form>
@@ -184,14 +184,14 @@ export default {
   data() {
     return {
       commands: {
-        delete: { name: "delete", title: "删除" },
-        recover: { name: "recover", title: "恢复" },
+        delete: { name: "delete", title: "刪除" },
+        recover: { name: "recover", title: "恢復" },
         forbidden: { name: "forbidden", title: "禁用" },
-        normal: { name: "normal", title: "启用" },
+        normal: { name: "normal", title: "啟用" },
       },
       formModel: {
         opened: false,
-        title: "创建角色",
+        title: "建立角色",
         mode: "create",
         selection: [],
         fields: {
@@ -208,7 +208,7 @@ export default {
             {
               type: "string",
               required: true,
-              message: "请输入角色名称",
+              message: "請輸入角色名稱",
               min: 2,
             },
           ],
@@ -234,7 +234,7 @@ export default {
             isDeletedSources: [
               { value: -1, text: "全部" },
               { value: 0, text: "正常" },
-              { value: 1, text: "已删" },
+              { value: 1, text: "已刪" },
             ],
             statusSources: [
               { value: -1, text: "全部" },
@@ -248,9 +248,9 @@ export default {
           },
           columns: [
             { type: "selection", width: 50, key: "handle" },
-            { title: "角色名称", key: "name", width: 250, sortable: true },
+            { title: "角色名稱", key: "name", width: 250, sortable: true },
             {
-              title: "状态",
+              title: "狀態",
               key: "status",
               align: "center",
               width: 120,
@@ -274,7 +274,7 @@ export default {
                     },
                   },
                   [
-                    //这个中括号表示是Tooltip标签的子标签
+                    //這個中括號表示是Tooltip標籤的子標籤
                     h(
                       "Tag",
                       {
@@ -284,7 +284,7 @@ export default {
                         },
                       },
                       statusText
-                    ), //表格列显示文字
+                    ), //表格列顯示文字
                     h(
                       "p",
                       {
@@ -293,14 +293,14 @@ export default {
                           whiteSpace: "normal",
                         },
                       },
-                      statusText //整个的信息即气泡内文字
+                      statusText //整個的資訊即氣泡內文字
                     ),
                   ]
                 );
               },
             },
             {
-              title: "内置?",
+              title: "內建?",
               key: "isBuiltin",
               align: "center",
               width: 80,
@@ -324,7 +324,7 @@ export default {
                     },
                   },
                   [
-                    //这个中括号表示是Tooltip标签的子标签
+                    //這個中括號表示是Tooltip標籤的子標籤
                     h(
                       "Tag",
                       {
@@ -334,7 +334,7 @@ export default {
                         },
                       },
                       statusText
-                    ), //表格列显示文字
+                    ), //表格列顯示文字
                     h(
                       "p",
                       {
@@ -343,7 +343,7 @@ export default {
                           whiteSpace: "normal",
                         },
                       },
-                      statusText //整个的信息即气泡内文字
+                      statusText //整個的資訊即氣泡內文字
                     ),
                   ]
                 );
@@ -374,7 +374,7 @@ export default {
                     },
                   },
                   [
-                    //这个中括号表示是Tooltip标签的子标签
+                    //這個中括號表示是Tooltip標籤的子標籤
                     h(
                       "Tag",
                       {
@@ -384,7 +384,7 @@ export default {
                         },
                       },
                       statusText
-                    ), //表格列显示文字
+                    ), //表格列顯示文字
                     h(
                       "p",
                       {
@@ -393,20 +393,20 @@ export default {
                           whiteSpace: "normal",
                         },
                       },
-                      statusText //整个的信息即气泡内文字
+                      statusText //整個的資訊即氣泡內文字
                     ),
                   ]
                 );
               },
             },
             {
-              title: "创建时间",
+              title: "建立時間",
               width: 150,
               ellipsis: true,
               tooltip: true,
               key: "createdOn",
             },
-            { title: "创建者", key: "createdByUserName" },
+            { title: "建立者", key: "createdByUserName" },
             {
               title: "操作",
               align: "center",
@@ -421,7 +421,7 @@ export default {
                     {
                       props: {
                         confirm: true,
-                        title: "你确定要删除吗?",
+                        title: "你確定要刪除嗎?",
                       },
                       on: {
                         "on-ok": () => {
@@ -456,7 +456,7 @@ export default {
                                 whiteSpace: "normal",
                               },
                             },
-                            "删除"
+                            "刪除"
                           ),
                         ]
                       ),
@@ -496,7 +496,7 @@ export default {
                             whiteSpace: "normal",
                           },
                         },
-                        "编辑"
+                        "編輯"
                       ),
                     ]
                   );
@@ -518,10 +518,10 @@ export default {
   computed: {
     formTitle() {
       if (this.formModel.mode === "create") {
-        return "创建角色";
+        return "建立角色";
       }
       if (this.formModel.mode === "edit") {
-        return "编辑角色";
+        return "編輯角色";
       }
       return "";
     },
@@ -572,7 +572,7 @@ export default {
     handleSubmitRole() {
       this.$refs["formRole"].validate((valid) => {
         if (!valid) {
-          this.$Message.error("请完善表单信息");
+          this.$Message.error("請完善表單資訊");
         } else {
           if (this.formModel.mode === "create") {
             this.doCreateRole();
@@ -618,7 +618,7 @@ export default {
     },
     doDelete(ids) {
       if (!ids) {
-        this.$Message.warning("请选择至少一条数据");
+        this.$Message.warning("請選擇至少一條數據");
         return;
       }
       deleteRole(ids).then((res) => {
@@ -632,15 +632,15 @@ export default {
     },
     handleBatchCommand(command) {
       if (!this.selectedRowsId || this.selectedRowsId.length <= 0) {
-        this.$Message.warning("请选择至少一条数据");
+        this.$Message.warning("請選擇至少一條數據");
         return;
       }
       this.$Modal.confirm({
         title: "操作提示",
         content:
-          "<p>确定要执行当前 [" +
+          "<p>確定要執行當前 [" +
           this.commands[command].title +
-          "] 操作吗?</p>",
+          "] 操作嗎?</p>",
         loading: true,
         onOk: () => {
           this.doBatchCommand(command);

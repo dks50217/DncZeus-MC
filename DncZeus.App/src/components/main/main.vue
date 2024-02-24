@@ -17,7 +17,7 @@
         @on-select="turnToPage"
         :menu-list="menuList"
       >
-        <!-- 需要放在菜单上面的内容，如Logo，写在side-menu标签内部，如下 -->
+        <!-- 需要放在菜單上面的內容，如Logo，寫在side-menu標籤內部，如下 -->
         <div class="logo-con">
           <!-- <img v-show="!collapsed" :src="maxLogo" key="max-logo"> -->
           <span v-show="!collapsed" style="color:#fff;font-size:26px;font-weight:700;text-align:center;display:block;letter-spacing:2px;padding-top:8px;">DncZeus</span>
@@ -194,7 +194,7 @@ export default {
   },
   mounted() {
     /**
-     * @description 初始化设置面包屑导航和标签导航
+     * @description 初始化設定麵包屑導航和標籤導航
      */
     this.setTagNavList();
     this.setHomeRoute(routers);
@@ -202,15 +202,15 @@ export default {
       route: this.$store.state.app.homeRoute
     });
     this.setBreadCrumb(this.$route);
-    // 设置初始语言
+    // 設定初始語言
     this.setLocal(this.$i18n.locale);
-    // 如果当前打开页面不在标签栏中，跳到homeName页
+    // 如果目前打開頁面不在標籤欄中，跳到homeName頁
     if (!this.tagNavList.find(item => item.name === this.$route.name)) {
       this.$router.push({
         name: this.$config.homeName
       });
     }
-    // 获取未读消息条数
+    // 獲取未讀訊息條數
     this.getUnreadMessageCount();
   }
 };

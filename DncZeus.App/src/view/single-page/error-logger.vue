@@ -1,7 +1,7 @@
 <template>
   <div>
-    <Button @click="exportData" type="primary" style="margin: 0 10px 10px 0;">导出日志记录</Button>
-    <b>注：这里只会显示成功保存到服务端的错误日志，而且页面错误日志不会在浏览器持久化存储，刷新页面即会丢失</b>
+    <Button @click="exportData" type="primary" style="margin: 0 10px 10px 0;">導出日誌記錄</Button>
+    <b>註：這裡只會顯示成功儲存到服務端的錯誤日誌，而且頁面錯誤日誌不會在瀏覽器持久化儲存，重新整理頁面即會丟失</b>
     <Table ref="table" :columns="columns" :data="errorList"></Table>
   </div>
 </template>
@@ -16,12 +16,12 @@ export default {
       columns: [
         {
           type: 'index',
-          title: '序号',
+          title: '序號',
           width: 100
         },
         {
           key: 'type',
-          title: '类型',
+          title: '型別',
           width: 100,
           render: (h, { row }) => {
             return (
@@ -33,7 +33,7 @@ export default {
         },
         {
           key: 'code',
-          title: '编码',
+          title: '編碼',
           render: (h, { row }) => {
             return (
               <span>{ row.code === 0 ? '-' : row.code }</span>
@@ -42,7 +42,7 @@ export default {
         },
         {
           key: 'mes',
-          title: '信息'
+          title: '資訊'
         },
         {
           key: 'url',
@@ -50,7 +50,7 @@ export default {
         },
         {
           key: 'time',
-          title: '时间',
+          title: '時間',
           render: (h, { row }) => {
             return (
               <span>{ dayjs(row.time).format('YYYY-MM-DD HH:mm:ss') }</span>
@@ -73,7 +73,7 @@ export default {
     ]),
     exportData () {
       this.$refs.table.exportCsv({
-        filename: '错误日志.csv'
+        filename: '錯誤日誌.csv'
       })
     }
   },

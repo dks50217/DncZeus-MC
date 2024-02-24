@@ -3,7 +3,7 @@ import { Modal } from 'iview'
 const beforeClose = {
   before_close_normal: (resolve) => {
     Modal.confirm({
-      title: '确定要关闭这一页吗',
+      title: '確定要關閉這一頁嗎',
       onOk: () => {
         console.log('close tab...')
         resolve(true)

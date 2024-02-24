@@ -31,14 +31,14 @@
                       search
                       :clearable="true"
                       v-model="stores.permission.query.kw"
-                      placeholder="输入关键字搜索..."
+                      placeholder="輸入關鍵字搜索..."
                       @on-search="handleSearchPermission()"
                     >
                       <Select
                         slot="prepend"
                         v-model="stores.permission.query.isDeleted"
                         @on-change="handleSearchPermission"
-                        placeholder="删除状态"
+                        placeholder="刪除狀態"
                         style="width: 60px"
                       >
                         <Option
@@ -52,7 +52,7 @@
                         slot="prepend"
                         v-model="stores.permission.query.status"
                         @on-change="handleSearchPermission"
-                        placeholder="权限状态"
+                        placeholder="許可權狀態"
                         style="width: 60px"
                       >
                         <Option
@@ -87,7 +87,7 @@
                               size="small"
                               icon="ios-search"
                               @click="handleRefreshSearchMenuTreeData"
-                              >刷新菜单</Button
+                              >重新整理菜單</Button
                             >
                             <Button
                               class="ml3"
@@ -114,13 +114,13 @@
                   <Button
                     class="txt-danger"
                     icon="md-trash"
-                    title="删除"
+                    title="刪除"
                     @click="handleBatchCommand('delete')"
                   ></Button>
                   <Button
                     class="txt-success"
                     icon="md-redo"
-                    title="恢复"
+                    title="恢復"
                     @click="handleBatchCommand('recover')"
                   ></Button>
                   <Button
@@ -132,12 +132,12 @@
                   <Button
                     class="txt-success"
                     icon="md-checkmark"
-                    title="启用"
+                    title="啟用"
                     @click="handleBatchCommand('normal')"
                   ></Button>
                   <Button
                     icon="md-refresh"
-                    title="刷新"
+                    title="重新整理"
                     @click="handleRefresh"
                   ></Button>
                 </ButtonGroup>
@@ -145,8 +145,8 @@
                   icon="md-create"
                   type="primary"
                   @click="handleShowCreateWindow"
-                  title="新增权限"
-                  >新增权限</Button
+                  title="新增許可權"
+                  >新增許可權</Button
                 >
               </Col>
             </Row>
@@ -170,18 +170,18 @@
       >
         <Row :gutter="32">
           <Col span="12">
-            <FormItem label="权限名称" prop="name">
+            <FormItem label="許可權名稱" prop="name">
               <Input
                 v-model="formModel.fields.name"
-                placeholder="请输入权限名称"
+                placeholder="請輸入許可權名稱"
               />
             </FormItem>
           </Col>
           <Col span="12">
-            <FormItem label="操作码" prop="actionCode">
+            <FormItem label="操作碼" prop="actionCode">
               <Input
                 v-model="formModel.fields.actionCode"
-                placeholder="请输入权限操作码"
+                placeholder="請輸入許可權操作碼"
               />
             </FormItem>
           </Col>
@@ -191,7 +191,7 @@
             <FormItem label-position="left" prop="menuName">
               <Input
                 v-model="formModel.fields.menuName"
-                placeholder="请选择菜单"
+                placeholder="請選擇菜單"
                 :readonly="true"
               >
                 <Dropdown
@@ -201,7 +201,7 @@
                   placement="bottom-end"
                 >
                   <Button type="primary"
-                    >选择...
+                    >選擇...
                     <Icon type="ios-arrow-down"></Icon>
                   </Button>
                   <div
@@ -215,7 +215,7 @@
                         size="small"
                         icon="ios-search"
                         @click="handleRefreshMenuTreeData"
-                        >刷新菜单</Button
+                        >重新整理菜單</Button
                       >
                     </div>
                     <Tree
@@ -231,8 +231,8 @@
         </Row>
         <Row :gutter="32">
           <Col span="12">
-            <FormItem label="类型" prop="type">
-              <Select v-model="formModel.fields.type" placeholder="权限类型">
+            <FormItem label="型別" prop="type">
+              <Select v-model="formModel.fields.type" placeholder="許可權型別">
                 <Option
                   v-for="item in sources.formSource.permissionTypeSources"
                   :value="item.value"
@@ -244,7 +244,7 @@
             </FormItem>
           </Col>
           <Col span="12">
-            <FormItem label="状态" prop="status">
+            <FormItem label="狀態" prop="status">
               <i-switch
                 size="large"
                 v-model="formModel.fields.status"
@@ -257,12 +257,12 @@
             </FormItem>
           </Col>
         </Row>
-        <FormItem label="备注" label-position="top">
+        <FormItem label="備註" label-position="top">
           <Input
             type="textarea"
             v-model="formModel.fields.description"
             :rows="4"
-            placeholder="权限备注信息"
+            placeholder="許可權備註資訊"
           />
         </FormItem>
       </Form>
@@ -303,14 +303,14 @@ export default {
   data() {
     return {
       commands: {
-        delete: { name: "delete", title: "删除" },
-        recover: { name: "recover", title: "恢复" },
+        delete: { name: "delete", title: "刪除" },
+        recover: { name: "recover", title: "恢復" },
         forbidden: { name: "forbidden", title: "禁用" },
-        normal: { name: "normal", title: "启用" },
+        normal: { name: "normal", title: "啟用" },
       },
       formModel: {
         opened: false,
-        title: "创建权限",
+        title: "建立許可權",
         mode: "create",
         selection: [],
         fields: {
@@ -331,7 +331,7 @@ export default {
             {
               type: "string",
               required: true,
-              message: "请输入权限名称",
+              message: "請輸入許可權名稱",
               min: 2,
             },
           ],
@@ -339,7 +339,7 @@ export default {
             {
               type: "string",
               required: true,
-              message: "请输入权限操作码",
+              message: "請輸入許可權操作碼",
               min: 2,
             },
           ],
@@ -347,7 +347,7 @@ export default {
             {
               type: "string",
               required: true,
-              message: "请选择菜单",
+              message: "請選擇菜單",
               min: 2,
             },
           ],
@@ -355,7 +355,7 @@ export default {
             {
               type: "number",
               required: true,
-              message: "请输入权限操作码",
+              message: "請輸入許可權操作碼",
             },
           ],
         },
@@ -370,7 +370,7 @@ export default {
             isDeleted: 0,
             status: -1,
             menuGuid: "",
-            menuName: "请选择...",
+            menuName: "請選擇...",
             sort: [
               {
                 direct: "DESC",
@@ -380,11 +380,11 @@ export default {
           },
           columns: [
             { type: "selection", width: 50, key: "handle" },
-            { title: "权限名称", key: "name", width: 250, sortable: true },
-            { title: "关联菜单", key: "menuName", width: 250 },
-            { title: "操作码", key: "actionCode", minWidth: 200 },
+            { title: "許可權名稱", key: "name", width: 250, sortable: true },
+            { title: "關聯菜單", key: "menuName", width: 250 },
+            { title: "操作碼", key: "actionCode", minWidth: 200 },
             {
-              title: "状态",
+              title: "狀態",
               key: "status",
               align: "center",
               width: 100,
@@ -408,7 +408,7 @@ export default {
                     },
                   },
                   [
-                    //这个中括号表示是Tooltip标签的子标签
+                    //這個中括號表示是Tooltip標籤的子標籤
                     h(
                       "Tag",
                       {
@@ -418,7 +418,7 @@ export default {
                         },
                       },
                       statusText
-                    ), //表格列显示文字
+                    ), //表格列顯示文字
                     h(
                       "p",
                       {
@@ -427,14 +427,14 @@ export default {
                           whiteSpace: "normal",
                         },
                       },
-                      statusText //整个的信息即气泡内文字
+                      statusText //整個的資訊即氣泡內文字
                     ),
                   ]
                 );
               },
             },
             {
-              title: "类型",
+              title: "型別",
               key: "permissionTypeText",
               align: "center",
               width: 100,
@@ -444,10 +444,10 @@ export default {
                 let statusText = "未知";
                 switch (permissionTypeText) {
                   case "Action":
-                    statusText = "按钮";
+                    statusText = "按鈕";
                     break;
                   case "Menu":
-                    statusText = "菜单";
+                    statusText = "菜單";
                     statusColor = "primary";
                     break;
                 }
@@ -461,7 +461,7 @@ export default {
                     },
                   },
                   [
-                    //这个中括号表示是Tooltip标签的子标签
+                    //這個中括號表示是Tooltip標籤的子標籤
                     h(
                       "Tag",
                       {
@@ -471,7 +471,7 @@ export default {
                         },
                       },
                       statusText
-                    ), //表格列显示文字
+                    ), //表格列顯示文字
                     h(
                       "p",
                       {
@@ -480,21 +480,21 @@ export default {
                           whiteSpace: "normal",
                         },
                       },
-                      statusText //整个的信息即气泡内文字
+                      statusText //整個的資訊即氣泡內文字
                     ),
                   ]
                 );
               },
             },
             {
-              title: "创建时间",
+              title: "建立時間",
               width: 120,
               ellipsis: true,
               tooltip: true,
               key: "createdOn",
             },
             {
-              title: "创建者",
+              title: "建立者",
               key: "createdByUserName",
               width: 80,
               ellipsis: true,
@@ -514,7 +514,7 @@ export default {
                     {
                       props: {
                         confirm: true,
-                        title: "你确定要删除吗?",
+                        title: "你確定要刪除嗎?",
                       },
                       on: {
                         "on-ok": () => {
@@ -549,7 +549,7 @@ export default {
                                 whiteSpace: "normal",
                               },
                             },
-                            "删除"
+                            "刪除"
                           ),
                         ]
                       ),
@@ -589,7 +589,7 @@ export default {
                             whiteSpace: "normal",
                           },
                         },
-                        "编辑"
+                        "編輯"
                       ),
                     ]
                   );
@@ -603,8 +603,8 @@ export default {
       sources: {
         formSource: {
           permissionTypeSources: [
-            { value: 0, text: "菜单", disabled: false },
-            { value: 1, text: "按钮", disabled: false },
+            { value: 0, text: "菜單", disabled: false },
+            { value: 1, text: "按鈕", disabled: false },
           ],
           menuTree: {
             data: [],
@@ -614,7 +614,7 @@ export default {
           isDeletedSources: [
             { value: -1, text: "全部" },
             { value: 0, text: "正常" },
-            { value: 1, text: "已删" },
+            { value: 1, text: "已刪" },
           ],
           statusSources: [
             { value: -1, text: "全部" },
@@ -638,10 +638,10 @@ export default {
   computed: {
     formTitle() {
       if (this.formModel.mode === "create") {
-        return "创建权限";
+        return "建立許可權";
       }
       if (this.formModel.mode === "edit") {
-        return "编辑权限";
+        return "編輯許可權";
       }
       return "";
     },
@@ -693,7 +693,7 @@ export default {
     handleSubmitPermission() {
       this.$refs["formPermission"].validate((valid) => {
         if (!valid) {
-          this.$Message.error("请完善表单信息");
+          this.$Message.error("請完善表單資訊");
           _valid = false;
         } else {
           if (this.formModel.mode === "create") {
@@ -743,7 +743,7 @@ export default {
     },
     doDelete(ids) {
       if (!ids) {
-        this.$Message.warning("请选择至少一条数据");
+        this.$Message.warning("請選擇至少一條數據");
         return;
       }
       deletePermission(ids).then((res) => {
@@ -757,15 +757,15 @@ export default {
     },
     handleBatchCommand(command) {
       if (!this.selectedRowsId || this.selectedRowsId.length <= 0) {
-        this.$Message.warning("请选择至少一条数据");
+        this.$Message.warning("請選擇至少一條數據");
         return;
       }
       this.$Modal.confirm({
         title: "操作提示",
         content:
-          "<p>确定要执行当前 [" +
+          "<p>確定要執行當前 [" +
           this.commands[command].title +
-          "] 操作吗?</p>",
+          "] 操作嗎?</p>",
         loading: true,
         onOk: () => {
           this.doBatchCommand(command);
@@ -843,7 +843,7 @@ export default {
     },
     handleClearSearchMenuTreeSelection() {
       this.stores.permission.query.menuGuid = "";
-      this.stores.permission.query.menuName = "请选择...";
+      this.stores.permission.query.menuName = "請選擇...";
       this.loadPermissionList();
     },
   },

@@ -52,11 +52,11 @@ export default {
     setAccess(state, access) {
       state.access = access
     },
-    //设置用户可以访问的页面编码列表
+    //設定使用者可以訪問的頁面編碼列表
     setPages(state, pages) {
       //state.pages = pages;
     },
-    //设置用户可以访问页面的权限集合
+    //設定使用者可以訪問頁面的許可權集合
     setPermissions(state, permissions) {
       state.permissions = permissions;
     },
@@ -102,7 +102,7 @@ export default {
     messageTrashCount: state => state.messageTrashList.length
   },
   actions: {
-    // 登录
+    // 登錄
     handleLogin({
       commit
     }, {
@@ -127,14 +127,14 @@ export default {
         })
       })
     },
-    // 退出登录
+    // 退出登錄
     handleLogOut({
       state,
       commit
     }) {
       return new Promise((resolve, reject) => {
-        // 如果登录需要请求接口，则使用如下(1)的ajax请求，否则使用(2)的本地退出方式
-        // 1.远程接口退出登录方式
+        // 如果登錄需要請求介面，則使用如下(1)的ajax請求，否則使用(2)的本地退出方式
+        // 1.遠端介面退出登錄方式
         // logout(state.token).then(() => {
         //   commit('setToken', '')
         //   commit('setAccess', [])
@@ -144,8 +144,8 @@ export default {
         //   reject(err)
         // })
 
-        // 2.本地退出登录方式
-        // 如果你的退出登录无需请求接口，则可以直接使用下面三行代码而无需使用logout调用接口
+        // 2.本地退出登錄方式
+        // 如果你的退出登錄無需請求介面，則可以直接使用下面三行程式碼而無需使用logout呼叫介面
         commit('setToken', '')
         commit('setAccess', [])
         //commit('setPages', [])
@@ -155,7 +155,7 @@ export default {
         //location.reload();
       })
     },
-    // 获取用户相关信息
+    // 獲取使用者相關資訊
     getUserInfo({
       state,
       commit
@@ -181,7 +181,7 @@ export default {
         }
       })
     },
-    // 此方法用来获取未读消息条数，接口只返回数值，不返回消息列表
+    // 此方法用來獲取未讀訊息條數，介面只返回數值，不返回訊息列表
     getUnreadMessageCount({
       state,
       commit
@@ -193,7 +193,7 @@ export default {
         commit('setMessageCount', data)
       })
     },
-    // 获取消息列表，其中包含未读、已读、回收站三个列表
+    // 獲取訊息列表，其中包含未讀、已讀、回收站三個列表
     getMessageList({
       state,
       commit
@@ -220,7 +220,7 @@ export default {
         })
       })
     },
-    // 根据当前点击的消息的id获取内容
+    // 根據目前點選的訊息的id獲取內容
     getContentByMsgId({
       state,
       commit
@@ -243,7 +243,7 @@ export default {
         }
       })
     },
-    // 把一个未读消息标记为已读
+    // 把一個未讀訊息標記為已讀
     hasRead({
       state,
       commit
@@ -264,7 +264,7 @@ export default {
         })
       })
     },
-    // 删除一个已读消息到回收站
+    // 刪除一個已讀訊息到回收站
     removeReaded({
       commit
     }, {
@@ -283,7 +283,7 @@ export default {
         })
       })
     },
-    // 还原一个已删除消息到已读消息
+    // 還原一個已刪除訊息到已讀訊息
     restoreTrash({
       commit
     }, {
